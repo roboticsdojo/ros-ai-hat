@@ -8,7 +8,7 @@ Falls back to CPU inference if the AI HAT+ is not present.
 ## Setup
 
 ```bash
-sudo apt install python3-opencv python3-numpy ros-jazzy-cv-bridge ros-jazzy-vision-msgs
+sudo apt install python3-opencv python3-numpy ros-jazzy-cv-bridge ros-jazzy-vision-msgs ros-jazzy-image-transport
 pip install onnxruntime --break-system-packages
 ```
 
@@ -28,4 +28,20 @@ source install/setup.bash
 ros2 launch cpu_yolo_detector cpu_detector.launch.py \
   model_path:=/path/to/yolov8s.onnx \
   input_topic:=/camera/image_raw
+```
+
+## Hailo Inference
+
+```bash
+ros2 launch hailo_yolo_detector detector.launch.py \
+  hef_path:=/path/to/yolov8s.hef \
+  input_topic:=/camera/image_raw
+```
+
+Detections publish on `/hailo/detections` as `vision_msgs/Detection2DArray`.
+Check them with:
+
+```bash
+ros2 topic hz /hailo/detections    # your real end-to-end FPS
+ros2 topic echo /hailo/detections
 ```
