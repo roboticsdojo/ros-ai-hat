@@ -26,7 +26,7 @@ source install/setup.bash
 
 ```bash
 ros2 launch cpu_yolo_detector cpu_detector.launch.py \
-  model_path:=/path/to/yolov8s.onnx \
+  model_path:=/path/to/yolov8n.onnx \
   input_topic:=/camera/image_raw
 ```
 
@@ -34,7 +34,7 @@ ros2 launch cpu_yolo_detector cpu_detector.launch.py \
 
 ```bash
 ros2 launch hailo_yolo_detector detector.launch.py \
-  hef_path:=/path/to/yolov8s.hef \
+  hef_path:=/path/to/yolov8n.hef \
   input_topic:=/camera/image_raw
 ```
 

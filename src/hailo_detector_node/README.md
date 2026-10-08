@@ -20,7 +20,7 @@ down to just `libhailort` + a `.hef` model.
 
 ```bash
 ros2 launch hailo_yolo_detector detector.launch.py \
-  hef_path:=/path/to/yolov8s.hef \
+  hef_path:=/path/to/yolov8n.hef \
   input_topic:=/camera/image_raw
 ```
 
@@ -39,7 +39,7 @@ detection postprocessing is model-specific. Two things to verify
 against your actual `.hef`:
 
 ```bash
-hailortcli parse-hef /path/to/yolov8s.hef
+hailortcli parse-hef /path/to/yolov8n.hef
 ```
 
 1. **Input shape/format** — confirm width/height/format matches what
